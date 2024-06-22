@@ -15,11 +15,51 @@ datasource db {
 
 model User {
   id         String   @id @default(uuid())
-  name       String   
+  fullname   String   
   email      String   @unique
   password   String
+  phone      String
+  role       Role     @default(USER)
   created_at DateTime @default(now())
   updated_at DateTime @updatedAt
+  deleted_at DateTime?
 
   @@map(name: "users")
+  reviews Review[]
+  reservations Reservation[]
+}
+
+model Review {
+  id String @id @default(uuid())
+  user_id String
+  star Int
+  comment String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  deleted_at DateTime?
+
+  @@map(name: "reviews")
+
+  user User @relation(fields: [user_id], references: [id])
+}
+
+model Reservation {
+  id String @id @default(uuid())
+  user_id String
+  customer_name String
+  customer_phone String
+  service String
+  created_at DateTime @default(now())
+  updated_at DateTime @updatedAt
+  deleted_at DateTime?
+
+  @@map(name: "reservations")
+
+  user User @relation(fields: [user_id], references: [id])
+}
+
+
+enum Role {
+  ADMIN
+  USER
 }

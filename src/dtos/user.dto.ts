@@ -2,14 +2,21 @@ import { User } from "@prisma/client";
 
 export type UserResponse = {
   email: string;
-  name: string;
+  fullname: string;
 };
 
 export type UserRegisterRequest = {
+  fullname: string;
   email: string;
   password: string;
-  name: string;
+  phone: string;
+  role: Role;
 };
+
+enum Role {
+  ADMIN = "ADMIN",
+  USER = "USER",
+}
 
 export type UserLoginRequest = {
   email: string;
@@ -19,6 +26,6 @@ export type UserLoginRequest = {
 export function ToUserResponse(user: User): UserResponse {
   return {
     email: user.email,
-    name: user.name,
+    fullname: user.fullname,
   };
 }
