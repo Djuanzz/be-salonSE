@@ -32,4 +32,16 @@ export class UserController {
       next(err);
     }
   }
+
+  static async GET_ALL(req: Request, res: Response, next: NextFunction) {
+    try {
+      const response = await UserService.getAllUser();
+      res.status(StatusCodes.OK).json({
+        status: true,
+        data: response,
+      });
+    } catch (err) {
+      next(err);
+    }
+  }
 }

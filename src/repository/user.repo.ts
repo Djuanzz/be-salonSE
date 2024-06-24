@@ -32,4 +32,8 @@ export class UserRepo {
       },
     });
   }
+
+  static async getAllUser(): Promise<User[]> {
+    return await prisma.user.findMany();
+  }
 }

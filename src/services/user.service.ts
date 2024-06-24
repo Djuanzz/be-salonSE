@@ -50,4 +50,9 @@ export class UserService {
 
     return ToUserResponse(user);
   }
+
+  static async getAllUser(): Promise<UserResponse[]> {
+    const users = await UserRepo.getAllUser();
+    return users.map((user) => ToUserResponse(user));
+  }
 }
