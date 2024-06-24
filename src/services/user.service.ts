@@ -30,7 +30,7 @@ export class UserService {
     return ToUserResponse(user);
   }
 
-  static async loginUser(req: UserLoginRequest): Promise<UserResponse> {
+  static async loginUser(req: UserLoginRequest): Promise<string> {
     const userLogin = Validation.validate(UserValidation.LOGIN, req);
     const user = await UserRepo.findUserByEmail(userLogin.email);
     if (!user) {
@@ -48,7 +48,9 @@ export class UserService {
       );
     }
 
-    return ToUserResponse(user);
+    const token = await UserRepo.generateToken(user);
+
+    return token;
   }
 
   static async getAllUser(): Promise<UserResponse[]> {

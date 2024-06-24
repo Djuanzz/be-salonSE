@@ -23,6 +23,12 @@ export class UserController {
     try {
       const request: UserLoginRequest = req.body as UserLoginRequest;
       const response = await UserService.loginUser(request);
+
+      res.cookie("token", response, {
+        httpOnly: true,
+        maxAge: 1000 * 60 * 60 * 2,
+      });
+
       res.status(StatusCodes.OK).json({
         status: true,
         message: MSG.MESSAGE_SUCCESS_USER_LOGIN,
