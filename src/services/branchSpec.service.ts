@@ -24,4 +24,12 @@ export class BranchSpecService {
     const branchSpecs = await BranchSpecRepository.getAllBranchSpec();
     return branchSpecs.map((branchSpec) => ToBranchSpecResponse(branchSpec));
   }
+
+  static async getAllServicesNameOnBranchByBranchId(branch_id: string) {
+    const branchSpecs =
+      await BranchSpecRepository.getAllServicesNameOnBranchByBranchId(
+        branch_id
+      );
+    return branchSpecs;
+  }
 }

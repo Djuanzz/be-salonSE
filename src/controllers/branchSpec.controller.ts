@@ -30,4 +30,22 @@ export class BranchSpecController {
       next(err);
     }
   }
+
+  static async GET_ALL_SERVICES_NAME_ON_BRANCH_BY_BRANCH_ID(
+    req: Request,
+    res: Response,
+    next: NextFunction
+  ) {
+    try {
+      const branch_id = req.params.branch_id;
+      const response =
+        await BranchSpecService.getAllServicesNameOnBranchByBranchId(branch_id);
+      res.status(StatusCodes.OK).json({
+        status: true,
+        data: response,
+      });
+    } catch (err) {
+      next(err);
+    }
+  }
 }
