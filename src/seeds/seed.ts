@@ -1,4 +1,5 @@
 import { userSeeds } from "./user.seed";
+import { serviceSeed } from "./service.seed";
 import { prisma } from "../config/database";
 import bcrypt from "bcrypt";
 
@@ -12,6 +13,15 @@ async function main() {
         password: user.password,
         phone: user.phone,
         role: user.role,
+      },
+    });
+  }
+
+  for (const service of serviceSeed) {
+    await prisma.service.create({
+      data: {
+        name: service.name,
+        price: service.price,
       },
     });
   }
