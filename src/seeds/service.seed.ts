@@ -1,4 +1,4 @@
-export const serviceSeed = [
+export const serviceSeeds = [
   {
     name: "Haircut",
     price: 50000,

@@ -1,5 +1,5 @@
 import { userSeeds } from "./user.seed";
-import { serviceSeed } from "./service.seed";
+import { serviceSeeds } from "./service.seed";
 import { prisma } from "../config/database";
 import bcrypt from "bcrypt";
 
@@ -17,7 +17,7 @@ async function main() {
     });
   }
 
-  for (const service of serviceSeed) {
+  for (const service of serviceSeeds) {
     await prisma.service.create({
       data: {
         name: service.name,
