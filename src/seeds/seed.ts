@@ -1,5 +1,6 @@
 import { userSeeds } from "./user.seed";
 import { serviceSeeds } from "./service.seed";
+import { branchSeeds } from "./branch.seed";
 import { prisma } from "../config/database";
 import bcrypt from "bcrypt";
 
@@ -22,6 +23,17 @@ async function main() {
       data: {
         name: service.name,
         price: service.price,
+      },
+    });
+  }
+
+  for (const branch of branchSeeds) {
+    await prisma.branch.create({
+      data: {
+        name: branch.name,
+        address: branch.address,
+        open_time: branch.open_time,
+        close_time: branch.close_time,
       },
     });
   }
