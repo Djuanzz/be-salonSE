@@ -13,4 +13,6 @@ export class MSG {
     "user created successfully";
   static readonly MESSAGE_SUCCESS_USER_LOGIN: string = "login success";
   static readonly MESSAGE_SUCCESS_REVIEW_CREATE: string = "review created";
+  static readonly MESSAGE_SUCCESS_RESERVATION_CREATE: string =
+    "reservation created";
 }

@@ -3,6 +3,7 @@ import dotenv from "dotenv";
 import cors from "cors";
 import { userRouter } from "./routes/user.routes";
 import { reviewRouter } from "./routes/review.routes";
+import { reservationRouter } from "./routes/reservation.routes";
 import { errorMiddleware } from "./middleware/error.mid";
 
 dotenv.config();
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/user", userRouter);
 app.use("/api/review", reviewRouter);
+app.use("/api/reservation", reservationRouter);
 app.use(errorMiddleware);
 
 app.listen(process.env.PORT, () => {
