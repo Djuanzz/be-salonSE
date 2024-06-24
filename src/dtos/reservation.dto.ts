@@ -4,14 +4,14 @@ export type ReservationRequest = {
   user_id: string;
   customer_name: string;
   customer_phone: string;
-  service: string;
+  branch_id: string;
 };
 
 export type ReservationResponse = {
   user_id: string;
   customer_name: string;
   customer_phone: string;
-  service: string;
+  branch_id: string;
 };
 
 export function ToReservationResponse(
@@ -21,6 +21,6 @@ export function ToReservationResponse(
     user_id: reservation.user_id,
     customer_name: reservation.customer_name,
     customer_phone: reservation.customer_phone,
-    service: reservation.service,
+    branch_id: reservation.branch_id,
   };
 }

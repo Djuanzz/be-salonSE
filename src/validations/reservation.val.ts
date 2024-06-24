@@ -5,6 +5,6 @@ export class ReservationValidation {
     user_id: z.string().uuid(),
     customer_name: z.string().min(3).max(191),
     customer_phone: z.string().min(3).max(191),
-    service: z.string().min(3).max(191),
+    branch_id: z.string().uuid(),
   });
 }

@@ -1,37 +1,26 @@
+enum ROLE {
+  ADMIN = "ADMIN",
+  USER = "USER",
+}
+
 export const userSeeds = [
   {
-    name: "warnamerah",
-    email: "warnamerah@gmail.com",
-    password: "warnamerahaja123",
+    fullname: "admin",
+    email: "admin@gmail.com",
+    password: "admin123",
+    phone: "1234567890",
+    role: ROLE.ADMIN,
   },
   {
-    name: "warnabiru",
-    email: "warnabiru@gmail.com",
-    password: "warnabiruaja123",
+    fullname: "warnabiru1",
+    email: "warnabiru1@gmail.com",
+    password: "warnabiru123",
+    phone: "0812267366353",
   },
   {
-    name: "warnahijau",
-    email: "warnahijau@gmail.com",
-    password: "warnahijauaja123",
-  },
-  {
-    name: "warnakuning",
-    email: "warnakuning@gmail.com",
-    password: "warnakuningaja123",
-  },
-  {
-    name: "warnaputih",
-    email: "warnaputih@gmail.com",
-    password: "warnaputihaja123",
-  },
-  {
-    name: "warnapink",
-    email: "warnapink@gmail.com",
-    password: "warnapinkaja123",
-  },
-  {
-    name: "warnahitam",
-    email: "warnahitam@gmail.com",
-    password: "warnahitamaja123",
+    fullname: "warnakuning1",
+    email: "warnakuning1@gmail.com",
+    password: "warnakuning123",
+    phone: "081663827736",
   },
 ];

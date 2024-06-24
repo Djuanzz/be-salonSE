@@ -6,7 +6,13 @@ async function main() {
   for (const user of userSeeds) {
     user.password = await bcrypt.hash(user.password, 10);
     await prisma.user.create({
-      data: user,
+      data: {
+        fullname: user.fullname,
+        email: user.email,
+        password: user.password,
+        phone: user.phone,
+        role: user.role,
+      },
     });
   }
 }
