@@ -68,7 +68,7 @@ model Service {
   deleted_at DateTime?
 
   @@map(name: "services")
-  branch_services BranchService[]
+  branch_services BranchWithService[]
 }
 
 model Branch {
@@ -82,11 +82,11 @@ model Branch {
   deleted_at DateTime?
 
   @@map(name: "branches")
-  branch_services BranchService[]
+  branch_services BranchWithService[]
   reservations Reservation[]
 }
 
-model BranchService {
+model BranchWithService {
   id String @id @default(uuid())
   branch_id String
   service_id String

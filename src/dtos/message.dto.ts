@@ -15,4 +15,6 @@ export class MSG {
   static readonly MESSAGE_SUCCESS_REVIEW_CREATE: string = "review created";
   static readonly MESSAGE_SUCCESS_RESERVATION_CREATE: string =
     "reservation created";
+  static readonly MESSAGE_SUCCESS_BRANCHWITHSERVICE_CREATE: string =
+    "branch with service created";
 }
