@@ -18,4 +18,5 @@ export class MSG {
   static readonly MESSAGE_SUCCESS_BRANCHWITHSERVICE_CREATE: string =
     "branch with service created";
   static readonly MESSAGE_SUCCESS_BRANCH_CREATE: string = "branch created";
+  static readonly MESSAGE_SUCCESS_USER_LOGOUT: string = "logout success";
 }

@@ -4,6 +4,18 @@ import { UserService } from "../services/user.service";
 import { MSG } from "../dtos/message.dto";
 import { StatusCodes } from "http-status-codes";
 
+declare module "express" {
+  interface Request {
+    user?: {
+      id: string;
+      email: string;
+      fullname: string;
+      phone: string;
+      role: string;
+    };
+  }
+}
+
 export class UserController {
   static async REGISTER(req: Request, res: Response, next: NextFunction) {
     try {
@@ -45,6 +57,31 @@ export class UserController {
       res.status(StatusCodes.OK).json({
         status: true,
         data: response,
+      });
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  static async CURRENT_USER(req: Request, res: Response, next: NextFunction) {
+    try {
+      const curUser = req.user?.id;
+      const response = await UserService.getCurrentUser(curUser!);
+      res.status(StatusCodes.OK).json({
+        status: true,
+        data: response,
+      });
+    } catch (err) {
+      next(err);
+    }
+  }
+
+  static async LOGOUT(req: Request, res: Response, next: NextFunction) {
+    try {
+      res.clearCookie("token");
+      res.status(StatusCodes.OK).json({
+        status: true,
+        message: MSG.MESSAGE_SUCCESS_USER_LOGOUT,
       });
     } catch (err) {
       next(err);

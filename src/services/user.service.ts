@@ -57,4 +57,16 @@ export class UserService {
     const users = await UserRepo.getAllUser();
     return users.map((user) => ToUserResponse(user));
   }
+
+  static async getCurrentUser(id: string): Promise<UserResponse> {
+    const user = await UserRepo.findUserById(id);
+    if (!user) {
+      throw new ResponseError(
+        StatusCodes.NOT_FOUND,
+        MSG.MESSAGE_ERROR_USER_NOT_FOUND
+      );
+    }
+
+    return ToUserResponse(user);
+  }
 }

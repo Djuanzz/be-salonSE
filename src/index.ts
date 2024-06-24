@@ -7,6 +7,7 @@ import { branchSpecRouter } from "./routes/branchSpec.routes";
 import { branchRouter } from "./routes/branch.router";
 import { reservationRouter } from "./routes/reservation.routes";
 import { errorMiddleware } from "./middleware/error.mid";
+import cookieParser from "cookie-parser";
 
 dotenv.config();
 
@@ -18,6 +19,7 @@ app.use(
   })
 );
 app.use(express.json());
+app.use(cookieParser());
 app.use(express.urlencoded({ extended: true }));
 app.use("/api/user", userRouter);
 app.use("/api/review", reviewRouter);
