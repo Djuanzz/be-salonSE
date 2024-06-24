@@ -17,4 +17,5 @@ export class MSG {
     "reservation created";
   static readonly MESSAGE_SUCCESS_BRANCHWITHSERVICE_CREATE: string =
     "branch with service created";
+  static readonly MESSAGE_SUCCESS_BRANCH_CREATE: string = "branch created";
 }
