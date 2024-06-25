@@ -32,7 +32,7 @@ export const auth = async (req: Request, res: Response, next: NextFunction) => {
       role: user.role,
     };
 
-    console.log("user:", req.user);
+    // console.log(req.user.role);
 
     next();
   } catch (err) {
