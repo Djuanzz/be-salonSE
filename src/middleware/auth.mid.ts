@@ -4,7 +4,15 @@ import { prisma } from "../config/database";
 import { StatusCodes } from "http-status-codes";
 
 export const auth = async (req: Request, res: Response, next: NextFunction) => {
-  const token = req.cookies.token;
+  const token =
+    req.cookies.token ||
+    (req.headers.authorization && req.headers.authorization.split(" ")[1]) ||
+    req.query.token ||
+    req.body.token ||
+    req.headers["x-access-token"] ||
+    req.headers["token"] ||
+    req.headers["authorization"] ||
+    req.headers["Authorization"];
 
   if (!token) {
     return res.status(StatusCodes.UNAUTHORIZED).json({
