@@ -9,7 +9,18 @@ export class ReviewRepo {
     });
   }
 
-  static async getAllReview(): Promise<Review[]> {
-    return await prisma.review.findMany();
+  static async getAllReview() {
+    return await prisma.review.findMany({
+      select: {
+        id: true,
+        star: true,
+        comment: true,
+        user: {
+          select: {
+            fullname: true,
+          },
+        },
+      },
+    });
   }
 }

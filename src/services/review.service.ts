@@ -17,8 +17,8 @@ export class ReviewService {
     return ToReviewResponse(reviewData);
   }
 
-  static async getAllReview(): Promise<ReviewResponse[]> {
+  static async getAllReview() {
     const reviewData = await ReviewRepo.getAllReview();
-    return reviewData.map((review) => ToReviewResponse(review));
+    return reviewData;
   }
 }

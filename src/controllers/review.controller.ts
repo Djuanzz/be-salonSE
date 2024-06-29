@@ -7,7 +7,11 @@ import { ReviewRequest } from "../dtos/review.dto";
 export class ReviewController {
   static async CREATE(req: Request, res: Response, next: NextFunction) {
     try {
-      const request: ReviewRequest = req.body as ReviewRequest;
+      const user_id = req.user?.id;
+      const request: ReviewRequest = {
+        user_id,
+        ...req.body,
+      };
       const response = await ReviewService.createReview(request);
       res.status(StatusCodes.CREATED).json({
         status: true,
