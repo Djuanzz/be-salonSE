@@ -24,12 +24,14 @@ export class BranchSpecRepository {
         // branch_id: true,
         branch: {
           select: {
+            id: true,
             name: true,
           },
         },
         // service_id: true,
         service: {
           select: {
+            id: true,
             name: true,
             price: true,
           },

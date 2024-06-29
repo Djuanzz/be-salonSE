@@ -8,6 +8,7 @@ export type BranchRequest = {
 };
 
 export type BranchResponse = {
+  id: string;
   name: string;
   address: string;
   open_time: string;
@@ -16,6 +17,7 @@ export type BranchResponse = {
 
 export function ToBranchResponse(branch: Branch): BranchResponse {
   return {
+    id: branch.id,
     name: branch.name,
     address: branch.address,
     open_time: branch.open_time,

@@ -7,7 +7,12 @@ import { MSG } from "../dtos/message.dto";
 export class ReservationController {
   static async CREATE(req: Request, res: Response, next: NextFunction) {
     try {
-      const request: ReservationRequest = req.body as ReservationRequest;
+      const user_id = req.user?.id;
+      const request: ReservationRequest = {
+        user_id,
+        ...req.body,
+      };
+
       const response = await ReservationService.createReservation(request);
 
       res.status(StatusCodes.CREATED).json({

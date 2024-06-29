@@ -47,6 +47,7 @@ model Reservation {
   id String @id @default(uuid())
   user_id String
   branch_id String
+  service_id String
   customer_name String
   customer_phone String
   created_at DateTime @default(now())
