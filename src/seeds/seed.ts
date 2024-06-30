@@ -1,6 +1,7 @@
 import { userSeeds } from "./user.seed";
 import { serviceSeeds } from "./service.seed";
 import { branchSeeds } from "./branch.seed";
+import { branchServicesSeeds } from "./branchServices.seed";
 import { prisma } from "../config/database";
 import bcrypt from "bcrypt";
 
@@ -18,17 +19,20 @@ async function main() {
     });
   }
 
+  const createdServices = [];
   for (const service of serviceSeeds) {
-    await prisma.service.create({
+    const createdService = await prisma.service.create({
       data: {
         name: service.name,
         price: service.price,
       },
     });
+    createdServices.push(createdService);
   }
 
+  const createdBranches = [];
   for (const branch of branchSeeds) {
-    await prisma.branch.create({
+    const createdBranch = await prisma.branch.create({
       data: {
         name: branch.name,
         address: branch.address,
@@ -36,6 +40,24 @@ async function main() {
         close_time: branch.close_time,
       },
     });
+    createdBranches.push(createdBranch);
+  }
+
+  for (const { branchName, serviceNames } of branchServicesSeeds) {
+    const branch = createdBranches.find((b) => b.name === branchName);
+    if (!branch) continue; // Skip if branch is not found
+
+    for (const serviceName of serviceNames) {
+      const service = createdServices.find((s) => s.name === serviceName);
+      if (!service) continue; // Skip if service is not found
+
+      await prisma.branchWithService.create({
+        data: {
+          branch_id: branch.id,
+          service_id: service.id,
+        },
+      });
+    }
   }
 }
 

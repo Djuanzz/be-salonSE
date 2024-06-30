@@ -1,77 +1,62 @@
 export const branchSeeds = [
   {
-    name: "Branch 1",
-    address: "Address 1",
+    name: "Aurora Center",
+    address: "123 Aurora Ave",
     open_time: "08:00:00",
     close_time: "17:00:00",
   },
   {
-    name: "Branch 2",
-    address: "Address 2",
+    name: "Celestial Hub",
+    address: "456 Celestial Blvd",
     open_time: "08:00:00",
     close_time: "17:00:00",
   },
   {
-    name: "Branch 3",
-    address: "Address 3",
+    name: "Lunar Point",
+    address: "789 Lunar Lane",
     open_time: "08:00:00",
     close_time: "17:00:00",
   },
   {
-    name: "Branch 4",
-    address: "Address 4",
+    name: "Starlight Plaza",
+    address: "101 Starlight St",
     open_time: "08:00:00",
     close_time: "17:00:00",
   },
   {
-    name: "Branch 5",
-    address: "Address 5",
+    name: "Solaris Station",
+    address: "202 Solaris Circle",
     open_time: "08:00:00",
     close_time: "17:00:00",
   },
   {
-    name: "Branch 6",
-    address: "Address 6",
+    name: "Galaxy Depot",
+    address: "303 Galaxy Grove",
     open_time: "08:00:00",
     close_time: "17:00:00",
   },
   {
-    name: "Branch 7",
-    address: "Address 7",
+    name: "Nebula Node",
+    address: "404 Nebula Nook",
     open_time: "08:00:00",
     close_time: "17:00:00",
   },
   {
-    name: "Branch 8",
-    address: "Address 8",
+    name: "Comet Corner",
+    address: "505 Comet Court",
     open_time: "08:00:00",
     close_time: "17:00:00",
   },
   {
-    name: "Branch 9",
-    address: "Address 9",
+    name: "Meteor Base",
+    address: "606 Meteor Meadow",
     open_time: "08:00:00",
     close_time: "17:00:00",
   },
   {
-    name: "Branch 10",
-    address: "Address 10",
+    name: "Zenith Zone",
+    address: "707 Zenith Way",
     open_time: "08:00:00",
     close_time: "17:00:00",
   },
 ];
-
-// model Branch {
-//   id String @id @default(uuid())
-//   name String
-//   address String
-//   open_time String
-//   close_time String
-//   created_at DateTime @default(now())
-//   updated_at DateTime @updatedAt
-//   deleted_at DateTime?
-
-//   @@map(name: "branches")
-//   branch_services BranchService[]
-//   reservations Reservation[]
-// }

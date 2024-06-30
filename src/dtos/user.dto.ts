@@ -3,6 +3,7 @@ import { User } from "@prisma/client";
 export type UserResponse = {
   email: string;
   fullname: string;
+  role: string;
 };
 
 export type UserRegisterRequest = {
@@ -27,5 +28,6 @@ export function ToUserResponse(user: User): UserResponse {
   return {
     email: user.email,
     fullname: user.fullname,
+    role: user.role,
   };
 }
